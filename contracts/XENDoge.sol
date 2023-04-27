@@ -39,7 +39,7 @@ contract XENDoge is ERC20Capped, IERC165, IBurnRedeemable {
     function calculateMintReward(uint256 amountBurned) private view returns (uint256) {
         uint256 baseReward = amountBurned / XEN_BURN_RATIO;
         uint32 percentBonus = getPercentBonus();
-        uint256 earlyAdopterBonus = perentageOf(baseReward, percentBonus);
+        uint256 earlyAdopterBonus = percentageOf(baseReward, percentBonus);
 
         return baseReward + earlyAdopterBonus;
     }
@@ -72,7 +72,7 @@ contract XENDoge is ERC20Capped, IERC165, IBurnRedeemable {
         return 0;
     }
 
-    function perentageOf(uint256 number, uint32 percent) private pure returns (uint256) {
+    function percentageOf(uint256 number, uint32 percent) private pure returns (uint256) {
         return number * percent / 10000;
     }
 }
