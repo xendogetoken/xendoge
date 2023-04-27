@@ -36,7 +36,7 @@ contract XENDoge is ERC20Capped, IERC165, IBurnRedeemable {
         emit Redeemed(user, XEN_ADDRESS, address(this), amount, xenDoge);
     }
 
-    function calculateMintReward(uint256 amountBurned) private view returns (uint256) {
+    function calculateMintReward(uint256 amountBurned) internal view returns (uint256) {
         uint256 baseReward = amountBurned / XEN_BURN_RATIO;
         uint32 percentBonus = getPercentBonus();
         uint256 earlyAdopterBonus = percentageOf(baseReward, percentBonus);
@@ -44,7 +44,7 @@ contract XENDoge is ERC20Capped, IERC165, IBurnRedeemable {
         return baseReward + earlyAdopterBonus;
     }
 
-    function getPercentBonus() private view returns (uint32) {
+    function getPercentBonus() internal view returns (uint32) {
         if (this.totalSupply() >= 0 && this.totalSupply() <= 7500000000000000000000000000) return 150000; 
 
         if (this.totalSupply() > 7500000000000000000000000000 && this.totalSupply() <= 12500000000000000000000000000) return 100000;
@@ -72,7 +72,7 @@ contract XENDoge is ERC20Capped, IERC165, IBurnRedeemable {
         return 0;
     }
 
-    function percentageOf(uint256 number, uint32 percent) private pure returns (uint256) {
+    function percentageOf(uint256 number, uint32 percent) internal pure returns (uint256) {
         return number * percent / 10000;
     }
 }
