@@ -16,7 +16,7 @@ contract testSuite {
         xenDoge = new ExposedXENDoge();
     }
 
-    function checkSuccess() public {
+    function checkCalculateMintReward() public {
         Assert.equal(1600, xenDoge._calculateMintReward(0, 100000), "Incorrect mint reward calculation");
         Assert.equal(1600, xenDoge._calculateMintReward(5000000000000000000000000000, 100000), "Incorrect mint reward calculation");
         Assert.equal(1600, xenDoge._calculateMintReward(7500000000000000000000000000, 100000), "Incorrect mint reward calculation");
