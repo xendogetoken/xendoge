@@ -30,44 +30,44 @@ contract XENDoge is ERC20Capped, IERC165, IBurnRedeemable {
 
         totalXenBurned += amount;
 
-        uint256 xenDoge = calculateMintReward(amount);
+        uint256 xenDoge = calculateMintReward(this.totalSupply(), amount);
         _mint(user, xenDoge);
 
         emit Redeemed(user, XEN_ADDRESS, address(this), amount, xenDoge);
     }
 
-    function calculateMintReward(uint256 amountBurned) internal view returns (uint256) {
+    function calculateMintReward(uint256 currentSupply, uint256 amountBurned) internal pure returns (uint256) {
         uint256 baseReward = amountBurned / XEN_BURN_RATIO;
-        uint32 percentBonus = getPercentBonus();
+        uint32 percentBonus = getPercentBonus(currentSupply);
         uint256 earlyAdopterBonus = percentageOf(baseReward, percentBonus);
 
         return baseReward + earlyAdopterBonus;
     }
 
-    function getPercentBonus() internal view returns (uint32) {
-        if (this.totalSupply() >= 0 && this.totalSupply() <= 7500000000000000000000000000) return 150000; 
+    function getPercentBonus(uint256 currentSupply) internal pure returns (uint32) {
+        if (currentSupply >= 0 && currentSupply <= 7500000000000000000000000000) return 150000; 
 
-        if (this.totalSupply() > 7500000000000000000000000000 && this.totalSupply() <= 12500000000000000000000000000) return 100000;
+        if (currentSupply > 7500000000000000000000000000 && currentSupply <= 12500000000000000000000000000) return 100000;
 
-        if (this.totalSupply() > 12500000000000000000000000000 && this.totalSupply() <= 17500000000000000000000000000) return 66600; 
+        if (currentSupply > 12500000000000000000000000000 && currentSupply <= 17500000000000000000000000000) return 66600; 
 
-        if (this.totalSupply() > 17500000000000000000000000000 && this.totalSupply() <= 22500000000000000000000000000) return 44400; 
+        if (currentSupply > 17500000000000000000000000000 && currentSupply <= 22500000000000000000000000000) return 44400; 
 
-        if (this.totalSupply() > 22500000000000000000000000000 && this.totalSupply() <= 27500000000000000000000000000) return 29600; 
+        if (currentSupply > 22500000000000000000000000000 && currentSupply <= 27500000000000000000000000000) return 29600; 
 
-        if (this.totalSupply() > 27500000000000000000000000000 && this.totalSupply() <= 32500000000000000000000000000) return 19700; 
+        if (currentSupply > 27500000000000000000000000000 && currentSupply <= 32500000000000000000000000000) return 19700; 
 
-        if (this.totalSupply() > 32500000000000000000000000000 && this.totalSupply() <= 35000000000000000000000000000) return 13100; 
+        if (currentSupply > 32500000000000000000000000000 && currentSupply <= 35000000000000000000000000000) return 13100; 
 
-        if (this.totalSupply() > 35000000000000000000000000000 && this.totalSupply() <= 37500000000000000000000000000) return 8700; 
+        if (currentSupply > 35000000000000000000000000000 && currentSupply <= 37500000000000000000000000000) return 8700; 
 
-        if (this.totalSupply() > 37500000000000000000000000000 && this.totalSupply() <= 40000000000000000000000000000) return 5800; 
+        if (currentSupply > 37500000000000000000000000000 && currentSupply <= 40000000000000000000000000000) return 5800; 
 
-        if (this.totalSupply() > 40000000000000000000000000000 && this.totalSupply() <= 42500000000000000000000000000) return 3800; 
+        if (currentSupply > 40000000000000000000000000000 && currentSupply <= 42500000000000000000000000000) return 3800; 
 
-        if (this.totalSupply() > 42500000000000000000000000000 && this.totalSupply() <= 45000000000000000000000000000) return 2500; 
+        if (currentSupply > 42500000000000000000000000000 && currentSupply <= 45000000000000000000000000000) return 2500; 
 
-        if (this.totalSupply() > 45000000000000000000000000000 && this.totalSupply() <= 47500000000000000000000000000) return 1700; 
+        if (currentSupply > 45000000000000000000000000000 && currentSupply <= 47500000000000000000000000000) return 1700; 
 
         return 0;
     }
