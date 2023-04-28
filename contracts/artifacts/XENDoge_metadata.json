@@ -355,6 +355,19 @@
 			},
 			{
 				"inputs": [],
+				"name": "totalDonated",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "totalSupply",
 				"outputs": [
 					{
@@ -581,11 +594,11 @@
 			]
 		},
 		"contracts/XENDoge.sol": {
-			"keccak256": "0x1e4de2330a3f0edf2d27c6638e6c3ad20121403225d20600e3485465fd7b5a2b",
+			"keccak256": "0x5a225225a0cff714b0522322faec1c1256a100a67bb9b40a5e4e3abb47082232",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://a54f46af964a58e2d9d933a0488241dbe308935983df31527161f564d29e6ed9",
-				"dweb:/ipfs/QmeHzm3EVdC85KjQ86N96fTbpWXK2DPBDAMiiSSDwregHG"
+				"bzz-raw://61205a3efb90aeca833dc075bbc17b08c22aff51ed8c4df4c4df33a5dd65c014",
+				"dweb:/ipfs/QmUTjAWerc2VErs41HPsirKinJEsnqQMeKi1f7EUef5enw"
 			]
 		}
 	},

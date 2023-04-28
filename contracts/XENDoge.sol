@@ -11,6 +11,7 @@ contract XENDoge is ERC20Capped, IERC165, IBurnRedeemable {
     address payable public constant DONATION_ADDRESS = payable(0xc475b02C2e2D6D2Dd20c1D8c6fB9Cf9a4D23165e);
     uint256 public constant XEN_BURN_RATIO = 1000;
     uint256 public totalXenBurned = 0;
+    uint256 public totalDonated = 0;
 
     constructor() ERC20("XENDoge", "XDOGE") ERC20Capped(50000000000000000000000000000) {}
 
@@ -19,6 +20,7 @@ contract XENDoge is ERC20Capped, IERC165, IBurnRedeemable {
     }
 
     function burnXEN(uint256 xen) public payable {
+        totalDonated += msg.value;
         DONATION_ADDRESS.transfer(msg.value);
         IBurnableToken(XEN_ADDRESS).burn(_msgSender(), xen);
     }
