@@ -197,7 +197,7 @@ The contract contains utility functions to calculate percentage bonuses and perc
 ### Visibility
 Consider making the utility functions `getPercentBonus` and `percentageOf` private instead of internal, as they are not intended to be used outside of this contract or inherited contracts.
 
-**These functions were set to internal in order to make them testable. There is no difference between private and internal once the smart contract is deployed to the blockchain.**
+**These functions were set to internal in order to make them testable. There is no difference between private and internal once the smart contract is deployed to the blockchain in terms of gas cost.**
 
 ### SafeMath
 Since the contract uses Solidity 0.8.19, it already benefits from built-in overflow and underflow protection. However, if you decide to use an earlier version of Solidity, consider using OpenZeppelin's SafeMath library to protect against arithmetic overflows and underflows.
