@@ -155,6 +155,20 @@ function percentageOf(uint256 number, uint32 percent) internal pure returns (uin
 }
 ```
 
+## Tests
+
+This smart contract includes a test suite that uses Remix's testing framework. The test code is in the `testSuite` contract and can be found in the `test/XENDoge_test.sol` file.
+
+The test suite tests the `calculateMintReward` function by checking the expected mint reward value for various values of `currentSupply` and `amountBurned`. The expected values are hardcoded into the test cases and are compared against the actual values returned by the function using the `Assert.equal` method.
+
+To run the test suite, follow these steps:
+1. Open the contract file in Remix.
+2. In the "Solidity Compiler" tab, compile the contract.
+3. In the "Solidity Unit Testing" tab, select the "testSuite" contract.
+4. Click on the "Run" button to run the test cases.
+
+All test cases should pass without errors.
+
 ## License
 
 This smart contract is released under the [MIT License](https://opensource.org/licenses/MIT).
