@@ -4,7 +4,6 @@ XENDoge is an ERC20 token smart contract that extends the `ERC20Capped` and `IBu
 
 ## Features
 
-- XENDoge token contract is built on the Ethereum blockchain.
 - The contract has a fixed cap of 50 billion XENDoge tokens.
 - Users can burn their `XEN` tokens to redeem `XENDoge` tokens.
 - The smart contract has a donation address where a portion of the ether sent during the burning process is sent.
@@ -51,7 +50,7 @@ npx hardhat run scripts/deploy.js --network <network-name>
 
 ### Constructor
 
-The constructor of the `XENDoge` contract sets the token name, symbol, and cap. It also initializes the `XEN_ADDRESS` and `DONATION_ADDRESS` variables and sets the `XEN_BURN_RATIO` to 1000.
+The constructor of the `XENDoge` contract sets the token name, symbol, and cap.
 
 ```solidity
 constructor() ERC20("XENDoge", "XDOGE") ERC20Capped(50000000000000000000000000000) {}
@@ -69,7 +68,7 @@ function supportsInterface(bytes4 interfaceId) public view virtual override retu
 
 ### burnXEN
 
-This function is called by users to burn `XEN` tokens and receive `XENDoge` tokens in return. The function also sends a portion of the ether sent during the burning process to the donation address.
+This function is called by users to burn `XEN` tokens and receive `XENDoge` tokens in return. The function also sends any ether received during the burning process to the donation address.
 
 ```solidity
 function burnXEN(uint256 xen) public payable {
