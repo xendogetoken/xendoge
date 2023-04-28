@@ -168,6 +168,47 @@ To run the test suite, follow these steps:
 
 All test cases should pass without errors.
 
+# XENDoge ChatGPT Smart Contract Audit
+
+I asked ChatGPT version 4.0 to conduct an audit of XENDoge. Here are the results. My responses are in **bold**.
+
+I've audited the provided Solidity smart contract, and here are my findings:
+
+## Overall Structure
+The smart contract appears to be a custom implementation of an ERC20Capped token. It imports required contracts from OpenZeppelin and FairCrypto and has implemented IERC165 and IBurnRedeemable interfaces.
+
+## Constructor and Token Info
+The constructor initializes the ERC20 token with a name "XENDoge" and a symbol "XDOGE". It also sets the cap for the total supply to 50,000,000,000 (50 billion) tokens.
+
+## Interface Support
+The `supportsInterface` function has been correctly implemented according to the ERC165 standard, allowing the contract to claim support for the IBurnRedeemable interface.
+
+## Burning XEN Tokens
+The `burnXEN` function allows users to burn XEN tokens, and it forwards the Ether sent with the transaction to the `DONATION_ADDRESS`. This function should be executed within the context of the user's address and with a non-zero Ether amount. The contract assumes that the user has already approved the XENDoge contract to spend the specified amount of XEN tokens on their behalf.
+
+## Token Minting
+The `onTokenBurned` function mints new XENDoge tokens for the user who burned the XEN tokens. The minting amount is determined by the `calculateMintReward` function, which calculates the reward based on the total burned XEN amount and the current total supply of XENDoge tokens. There's a bonus percentage applied depending on the current supply.
+
+## Utility Functions
+The contract contains utility functions to calculate percentage bonuses and percentages of a number. These functions are used to calculate the mint reward.
+
+## Suggestions and Potential Improvements
+
+### Visibility
+Consider making the utility functions `getPercentBonus` and `percentageOf` private instead of internal, as they are not intended to be used outside of this contract or inherited contracts.
+
+**These functions were set to internal in order to make them testable. There is no difference between private and internal once the smart contract is deployed to the blockchain.**
+
+### SafeMath
+Since the contract uses Solidity 0.8.19, it already benefits from built-in overflow and underflow protection. However, if you decide to use an earlier version of Solidity, consider using OpenZeppelin's SafeMath library to protect against arithmetic overflows and underflows.
+
+### Documentation
+Consider adding comments to describe the purpose of each function, as well as any specific implementation details or assumptions made within the code. This will help other developers better understand the contract and its intended behavior.
+
+**There is a README in the XENDoge repository on GitHub.**
+
+Overall, the contract appears to be well-structured, and I did not find any critical security vulnerabilities. However, I recommend addressing the suggestions mentioned above to improve the contract's overall quality and maintainability.
+
 ## License
 
 This smart contract is released under the [MIT License](https://opensource.org/licenses/MIT).
