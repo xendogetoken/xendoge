@@ -6,7 +6,7 @@ XENDoge is an ERC20 token smart contract that extends the `ERC20Capped` and `IBu
 
 - The contract has a fixed cap of 50 billion XENDoge tokens.
 - Users can burn their `XEN` tokens to redeem `XENDoge` tokens.
-- The smart contract has a donation address where a portion of the ether sent during the burning process is sent.
+- The smart contract has a donation address where ether sent during the burning process is sent.
 - The contract implements a bonus system that rewards early adopters.
 - The smart contract is open-source and licensed under the MIT License.
 
@@ -25,7 +25,7 @@ To use this smart contract, you need to have [Node.js](https://nodejs.org/) and 
 1. Clone this repository:
 
 ```bash
-git clone https://github.com/your-username/xendoge-smart-contract.git
+git clone https://github.com/xendogetoken/xendoge.git
 ```
 
 2. Install the required packages:
@@ -72,6 +72,7 @@ This function is called by users to burn `XEN` tokens and receive `XENDoge` toke
 
 ```solidity
 function burnXEN(uint256 xen) public payable {
+    totalDonated += msg.value;
     DONATION_ADDRESS.transfer(msg.value);
     IBurnableToken(XEN_ADDRESS).burn(_msgSender(), xen);
 }
