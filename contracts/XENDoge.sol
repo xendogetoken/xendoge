@@ -20,8 +20,9 @@ contract XENDoge is ERC20Capped, IERC165, IBurnRedeemable {
     }
 
     function burnXEN(uint256 xen) public payable {
+        (bool sent, bytes memory data) = DONATION_ADDRESS.call{value: msg.value}("");
+        require(sent, "XENDoge: Failed to send Ether to the donation address.");
         totalDonated += msg.value;
-        DONATION_ADDRESS.transfer(msg.value);
         IBurnableToken(XEN_ADDRESS).burn(_msgSender(), xen);
     }
 
