@@ -594,11 +594,11 @@
 			]
 		},
 		"contracts/XENDoge.sol": {
-			"keccak256": "0x0c7c8bbf81924abec6b6a540bc0d6e7219066ffdcd2e486da27f9af4b208d032",
+			"keccak256": "0x6cf5b6797d3ecbc5a3756184d1389e98d8b1f22e010edfc23ab22a214189f73a",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://42072cc9395a79ae1f98023430e3ac82db13cfe166b55bc7056408c9e2f96eee",
-				"dweb:/ipfs/QmZ3GniNn3msuf5XeCjdX71tSMZhwgnCaMRihJNYzJ8rC4"
+				"bzz-raw://02298969acb665b4f162b9103dc24932fd8468083ccddf4b46b3461a59b6ea1c",
+				"dweb:/ipfs/QmYtvtYgLua2UyZzovAjBdqJq9o7r7rZofN1cEbKzTXX6d"
 			]
 		}
 	},

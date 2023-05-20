@@ -7,8 +7,8 @@ import "@faircrypto/xen-crypto/contracts/interfaces/IBurnableToken.sol";
 import "@faircrypto/xen-crypto/contracts/interfaces/IBurnRedeemable.sol";
 
 contract XENDoge is ERC20Capped, IERC165, IBurnRedeemable { 
-    address public constant XEN_ADDRESS = 0xD342D63466B520d8D331CaFF863900d402Aa5b00;
-    address payable public constant DONATION_ADDRESS = payable(0xc475b02C2e2D6D2Dd20c1D8c6fB9Cf9a4D23165e);
+    address public constant XEN_ADDRESS = 0x06450dEe7FD2Fb8E39061434BAbCFC05599a6Fb8;
+    address payable public constant DONATION_ADDRESS = payable(0xDd1353ABC10433e0Df7217404B7908163Ad76930);
     uint256 public constant XEN_BURN_RATIO = 1000;
     uint256 public totalXenBurned = 0;
     uint256 public totalDonated = 0;
