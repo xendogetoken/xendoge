@@ -165,11 +165,11 @@
 			]
 		},
 		"tests/XENDoge_test.sol": {
-			"keccak256": "0x1792d490f5d5cda73fce53a93d4e9ed8fde4ef08c3b7984af4620e213e364f1f",
+			"keccak256": "0x6ae136ba25700ca163e57d7db9d3bbfd51f1a316dbc8018422675689ecdfe013",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://296d6b057f2ff2f9853c9ad6d6794b45cc88189e68ec3c085400071569d4e877",
-				"dweb:/ipfs/QmdiBtQ2f5hdXfXX2znVY4GnrQZ2h8DF1m9ooy1ZRrPxw6"
+				"bzz-raw://3ff0b4a19d3730a7941449b29838b58a7b9e56cf18f4b7c3419ba3cfff562b61",
+				"dweb:/ipfs/QmQMmpHxB3WWjzJqwVVTTEVLffn6MKpMUFEnEmKaoiKj3R"
 			]
 		}
 	},
