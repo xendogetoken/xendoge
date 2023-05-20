@@ -37,10 +37,6 @@ contract testSuite {
         Assert.equal(396, xenDoge._calculateMintReward(25500000000000000000000000000, 100000), "Incorrect mint reward calculation");
         Assert.equal(396, xenDoge._calculateMintReward(27500000000000000000000000000, 100000), "Incorrect mint reward calculation");
 
-        Assert.equal(396, xenDoge._calculateMintReward(22500000000000000000000000001, 100000), "Incorrect mint reward calculation");
-        Assert.equal(396, xenDoge._calculateMintReward(25500000000000000000000000000, 100000), "Incorrect mint reward calculation");
-        Assert.equal(396, xenDoge._calculateMintReward(27500000000000000000000000000, 100000), "Incorrect mint reward calculation");
-
         Assert.equal(297, xenDoge._calculateMintReward(27500000000000000000000000001, 100000), "Incorrect mint reward calculation");
         Assert.equal(297, xenDoge._calculateMintReward(30500000000000000000000000000, 100000), "Incorrect mint reward calculation");
         Assert.equal(297, xenDoge._calculateMintReward(32500000000000000000000000000, 100000), "Incorrect mint reward calculation");
